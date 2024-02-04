@@ -49,8 +49,11 @@ else:
 st.title("Movie Display")
 
 # Load your OMDB API key
-# api_key = st.secrets["omdb_api_key"]
-api_key='f500e5a8'
+try:
+    api_key = st.secrets["omdb_api_key"]
+    st.write("API Key found")
+except:
+    api_key='f500e5a8'
 # User input to add movies
 with st.form("movie_form"):
     new_movie_name = st.text_input("Movie Name")

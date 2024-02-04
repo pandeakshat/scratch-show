@@ -49,8 +49,11 @@ else:
 st.title("TV Show Display")
 
 # Load your OMDB API key
-# api_key = st.secrets["omdb_api_key"]
-api_key='f500e5a8'
+try:
+    api_key = st.secrets["omdb_api_key"]
+    st.write("API Key found")
+except:
+    api_key='f500e5a8'
 # User input to add TV shows
 with st.form("tv_show_form"):
     new_tv_show_name = st.text_input("TV Show Name")
